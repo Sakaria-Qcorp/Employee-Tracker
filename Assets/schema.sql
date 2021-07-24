@@ -8,3 +8,12 @@ CREATE TABLE department (
     department_name VARCHAR(30),
     PRIMARY KEY(department_id)
 );
+
+CREATE TABLE role (
+	role_id INT AUTO_INCREMENT,
+    title VARCHAR(30),
+    salary DECIMAL(9,2),
+    department_id INT,
+    PRIMARY KEY(role_id)
+);
+
