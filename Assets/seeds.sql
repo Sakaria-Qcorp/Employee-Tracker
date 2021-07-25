@@ -8,14 +8,20 @@ VALUE ('Service');
 INSERT INTO department (department)
 VALUE ('Sales');
 
+
 //inserting Roles
+INSERT INTO role (id, title, salary, department_id)
+VALUE (1,'Accountant', 70000, 1);
 INSERT INTO role (title, salary, department_id)
-VALUE ('Accountant', 70000, 1);
+VALUE (2,'Supervisor', 60000, 2);
 INSERT INTO role (title, salary, department_id)
-VALUE ('Supervisor', 60000, 2);
+VALUE (3,'Sales', 40000, 4);
 INSERT INTO role (title, salary, department_id)
-VALUE ('Sales', 40000, 4);
-INSERT INTO role (title, salary, department_id)
-VALUE ('Customer Service', 30000, 3);
+VALUE (4'Customer Service', 30000, 3);
+
+
+//inserting employees
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
+VALUES ("1", "Zakaria", "Aqmed", "2", null);
 
 
