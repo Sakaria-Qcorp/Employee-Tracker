@@ -27,5 +27,7 @@ INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
 VALUES ("2", "Yantu", "Ebe", "3", null);
 INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
 VALUES ("3", "Maxa", "Million", "1", null);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
+VALUES ("4", "John", "Baxster", "4", null);
 
 
