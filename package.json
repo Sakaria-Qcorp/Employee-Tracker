@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Sakaria-Qcorp/Employee-Tracker#readme",
   "dependencies": {
-    "inquirer": "^8.1.2"
+    "dotenv": "^10.0.0",
+    "inquirer": "^8.1.2",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.5",
+    "sql": "^0.78.0"
   }
 }
