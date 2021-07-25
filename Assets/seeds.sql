@@ -14,4 +14,8 @@ VALUE ('Accountant', 70000, 1);
 INSERT INTO role (title, salary, department_id)
 VALUE ('Supervisor', 60000, 2);
 INSERT INTO role (title, salary, department_id)
-VALUE ('Sales', 60000, 4);
+VALUE ('Sales', 40000, 4);
+INSERT INTO role (title, salary, department_id)
+VALUE ('Customer Service', 30000, 3);
+
+
