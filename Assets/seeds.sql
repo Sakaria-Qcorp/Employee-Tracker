@@ -23,5 +23,9 @@ VALUE (4'Customer Service', 30000, 3);
 //inserting employees
 INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
 VALUES ("1", "Zakaria", "Aqmed", "2", null);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
+VALUES ("2", "Yantu", "Ebe", "3", null);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
+VALUES ("3", "Maxa", "Million", "1", null);
 
 
