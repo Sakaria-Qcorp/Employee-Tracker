@@ -19,13 +19,13 @@ INSERT INTO role (title, salary, department_id)
 VALUE ('Customer Service', 30000, 3);
 
 
-INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
-VALUES ("1", "Zakaria", "Aqmed", "2", null);
-INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
-VALUES ("2", "Yantu", "Ebe", "3", null);
-INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
-VALUES ("3", "Maxa", "Million", "1", null);
-INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
-VALUES ("4", "John", "Baxster", "4", null);
+INSERT INTO employee (first_name, last_name,role_id, manager_id)
+VALUES ( "Zakaria", "Aqmed",1, null);
+INSERT INTO employee ( first_name, last_name,role_id, manager_id)
+VALUES ( "Yantu", "Ebe",2,null);
+INSERT INTO employee (first_name, last_name,role_id, manager_id)
+VALUES ( "Maxa", "Million",3, null);
+INSERT INTO employee ( first_name, last_name,role_id, manager_id)
+VALUES ( "John", "Baxster",4, null);
 
 
