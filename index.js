@@ -268,3 +268,4 @@ function addEmployee(title, id_role) {
     })
 }
 }
+function updateEmployee(){}
