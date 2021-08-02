@@ -56,8 +56,8 @@ function openningQuestion() {
          if (response.prompt === "Add an employee") {
             getEmployeeInfo();
          };
-         if (response.prompt === "update an employee") {
-            updateEmployee();
+         if (response.prompt === "Update an employee") {
+           findEmployeeName();
         };
         if (response.prompt === "Exit") {
 
@@ -85,7 +85,6 @@ function viewDepartments(){
      FROM department;`
      connection.query(mySQL, function (err, res){
         if (err) throw err;
-        // console.log(res);
         console.table('  ', res);
         openningQuestion();
     })
@@ -96,8 +95,7 @@ function getDeptpartments () {
     `SELECT department_id, department_name FROM department;`
 
     connection.query(mySQL, function (err, res){
-        if (err) throw err;
-        // console.log(res);        
+        if (err) throw err;        
         const departments = [];
         const dept_Id = [];
         for (let i = 0; i < res.length; i++) {
@@ -118,7 +116,7 @@ function viewEmployees(){
       INNER JOIN department ON role.role_id = department.department_id;`
      connection.query(mySQL, function (err, res){
         if (err) throw err;
-        //console.log(res);
+
         console.table('All Employees', res);
         openningQuestion();
     })
@@ -268,4 +266,91 @@ function addEmployee(title, id_role) {
     })
 }
 }
-function updateEmployee(){}
+
+    function findEmployeeName () {
+        let sql =  
+        `SELECT employee.id, employee.first_name, employee.last_name, department.department_name, role.title, role.salary, role.role_id
+         FROM employee INNER JOIN role 
+         ON employee.role_id = role.role_id 
+         INNER JOIN department 
+         ON role.department_id = department.department_id;`;
+    
+        connection.query(sql, function (err, res){
+            if (err) throw err;
+                  
+            const names = [];
+            const roles = [];
+            const roles_id = [];
+            for (let i = 0; i < res.length; i++) {
+                names.push(res[i].first_name +" "+res[i].last_name)
+                roles.push(res[i].title)
+                roles_id.push(res[i].role_id)
+            }
+            changeEmployeeInfo(names, roles, roles_id);
+        })
+    }
+    
+    
+    function changeEmployeeInfo(names, roles, roles_id) {
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "name",
+                message: "Which Employee would you like to update?",
+                choices: names
+            },
+    
+        ]).then((data) =>{
+            
+            let mySQL = 
+            `SELECT id FROM employee WHERE CONCAT(first_name, ' ', last_name) LIKE '${data.name}'`
+    
+            connection.query(mySQL, function (err, res){
+                if (err) throw err;
+                const num_Id = parseInt((res[0].id))
+                updateEmployee(num_Id, roles, roles_id)
+            })
+        })
+    };
+    
+    function updateEmployee (num_Id, roles, roles_id) {
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "role",
+                message: "What is the employee's new role?",
+                choices:roles
+               
+            }
+        ]).then((data) => {
+            let newtId;
+    
+            roles.forEach((array, index) =>{
+                const num = roles_id[index];
+                
+                if (array === `${data.role}`){
+                    newtId = num;
+                }
+            })
+            console.log(newtId);
+            const query = connection.query(
+            "UPDATE employee SET ? WHERE ?",
+                [
+                    {
+                        role_id: `${newtId}`
+                    },
+                    {
+                        id: `${num_Id}`
+                    }
+                ],
+                function (err, res) {
+                    if (err) throw err;
+                    console.log("Employee Role updated")
+                   openningQuestion();
+                }
+            )
+        })
+        
+    };
+    
+
