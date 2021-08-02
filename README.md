@@ -29,7 +29,7 @@
 
   ## Video
 
-   * Link: [Walkthrough](https://drive.google.com/file/d/1HGIQN5dQMAPe4QYpM3gTWaSs-3e_zGm5/view)
+   * Link: [Walkthrough](https://drive.google.com/file/d/1geS1W9DYM66TrEfVWm3UBy89PKtZTpc5/view)
   
   ## Tests
   npm test
